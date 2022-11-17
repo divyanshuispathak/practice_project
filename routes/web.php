@@ -17,8 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/demo', function(){
-    echo "Helllo World";
+Route::get('/demo/{name}/{id?}', function($name, $id=null){
+    // $name = 'Divyanshu Pathak';
+    // $data = compact('name', 'id');
+    // return view('/demo')->with($data);
+    return view('/demo', compact('name', 'id'));
 });
 
 Route::post('/test', function(){
