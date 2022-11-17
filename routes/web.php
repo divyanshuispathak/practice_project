@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/demo/{name}/{id?}', function($name, $id=null){
     // $name = 'Divyanshu Pathak';
@@ -26,4 +26,13 @@ Route::get('/demo/{name}/{id?}', function($name, $id=null){
 
 Route::post('/test', function(){
     echo "Hey divyanshu";
+});
+
+Route::get('/home/{name?}', function($name = null){
+    $demo = "<h2>Practice-Project</h2>";
+    return view('home', compact('name', 'demo'));
+});
+
+Route::get('/', function(){
+    return view('welcome');
 });
