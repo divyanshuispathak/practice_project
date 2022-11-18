@@ -10,44 +10,15 @@
 <body>
     <form action="{{url('/')}}/register" method="POST">
         @csrf
+        @php
+            $demo = 5;
+        @endphp
     <div class="container">
-        <h1 class="text-center">Registration</h1>
-        <div class="form-group">
-            <label for="">Name</label>
-            <input type="text" name="name" id="" class="form-control" placeholder="" value="{{old('name')}}" >
-            <span class="text-danger">
-            @error('name')
-                {{$message}}
-            @enderror
-            </span>
-        </div>
-        <div class="form-group">
-            <label for="">Email</label>
-            <input type="email" name="email" id="" class="form-control" placeholder="" value="{{old('email')}}">
-            <span class="text-danger">
-                @error('email')
-                    {{$message}}
-                @enderror
-                </span>
-        </div>
-        <div class="form-group">
-            <label for="">Password</label>
-            <input type="password" name="password" id="" class="form-control" placeholder="" >
-            <span class="text-danger">
-                @error('password')
-                    {{$message}}
-                @enderror
-                </span>
-        </div>
-        <div class="form-group">
-            <label for="">Confirm Password</label>
-            <input type="password" name="confirm_password" id="" class="form-control" placeholder="" >
-            <span class="text-danger">
-                @error('confirm_password')
-                    {{$message}}
-                @enderror
-                </span>
-        </div>
+        {{-- <h1 class="text-center">Registration</h1> --}}
+        <x-input type="text" name="name" label="Please Enter your Name" :demo="$demo"   />
+        <x-input type="email" name="email" label="Please Enter your Email"   />
+        <x-input type="password" name="password" label="Please Enter your Password"   />
+        <x-input type="password" name="confirm_password" label="Confirm Your Password"   />
         <button class="btn btn-primary">
             Submit
         </button>
